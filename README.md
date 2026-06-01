@@ -18,7 +18,7 @@
 ### 1. Клонировать репозиторий
 
 ```bash
-git clone https://github.com/username/project.git
+git clone https://github.com/Daren-art/ashan.git
 cd project
 ```
 
