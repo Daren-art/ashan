@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Магазин</h1>
+
+<form method="GET" class="search-box">
+
+    <input type="text" name="q" placeholder="Поиск..."
+           value="{{ search_query }}">
+
+    <select name="category">
+        <option value="">Все категории</option>
+
+        {% for category in categories %}
+        <option value="{{ category.slug }}">
+            {{ category.name }}
+        </option>
+        {% endfor %}
+    </select>
+
+    <button class="btn">Найти</button>
+
+</form>
+
+<div class="products-grid">
+
+    {% for product in products %}
+    <div class="card">
+
+        <img src="{{ product.image.url }}" alt="">
+
+        <div class="card-body">
+
+            <h3 class="card-title">{{ product.name }}</h3>
+
+            <p class="price">${{ product.price }}</p>
+
+            <a href="{% url 'product_detail' product.pk %}" class="btn">
+                Смотреть
+            </a>
+
+        </div>
+
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="product-detail">
+
+    <img src="{{ product.image.url }}" alt="">
+
+    <div class="product-info">
+
+        <h1>{{ product.name }}</h1>
+
+        <p>{{ product.description }}</p>
+
+        <h2 class="price">${{ product.price }}</h2>
+
+        <a href="{% url 'order' product.pk %}" class="btn">
+            Заказать
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}
